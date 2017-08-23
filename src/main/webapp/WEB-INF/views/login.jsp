@@ -6,7 +6,7 @@
 <h1><spring:message code="login.title"/></h1>
 
 <div class="col-xs-12 col-md-6 col-lg-4">
-  <form action="${ctx}/login" method="post">
+  <form action="${ctx}/login/log" method="post">
     <div class="form-group">
       <label for="userId"><spring:message code="login.form.userId"/></label>
       <input type="text" class="form-control" id="userId" name="userId" maxlength="12"

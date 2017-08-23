@@ -22,6 +22,6 @@ public class LoginController {
     @RequestMapping(value = "log", method = RequestMethod.POST)
     public ModelAndView log(@RequestParam String userId, @RequestParam String password) {
         LOGGER.debug("Called log controller");
-        return new ModelAndView("redirect:/main");
+        return new ModelAndView("redirect:/main?_f=true");
     }
 }

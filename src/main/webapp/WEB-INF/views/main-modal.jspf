@@ -1,0 +1,21 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="warnModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><spring:message code="main.modal.title"/></h4>
+      </div>
+      <div class="modal-body">
+        <p><spring:message code="main.model.message"/></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/javascript">
+  $(function () {
+    $("#warnModal").modal("show");
+
+    setTimeout(function () {
+      $("#warnModal").modal("hide");
+    }, 3000);
+  });
+</script>

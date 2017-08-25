@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal"><spring:message
+    code="main.addInfo"/></button>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="uploadModal">
+  <form action="${ctx}/main/addInfo" method="post">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><spring:message code="main.addInfo.title"/></h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="subject"><spring:message code="main.addInfo.form.subject"/></label>
+            <input type="text" class="form-control" id="subject" name="subject"
+                   placeholder="<spring:message code="main.addInfo.form.subject.placeholder"/>">
+          </div>
+          <div class="form-group">
+            <label for="location"><spring:message code="main.addInfo.form.location"/></label>
+            <input type="text" class="form-control" id="location" name="location"
+                   placeholder="<spring:message code="main.addInfo.form.location.placeholder"/>">
+          </div>
+          <div class="form-group">
+            <label for="detail"><spring:message code="main.addInfo.form.detail"/></label>
+            <textarea type="text" class="form-control" id="detail" name="detail"
+                      placeholder="<spring:message code="main.addInfo.form.detail.placeholder"/>"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo"><spring:message code="main.addInfo.form.photo"/></label>
+            <input type="file" class="form-control" id="photo" name="photo">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message
+              code="main.addInfo.cancel"/></button>
+          <button type="submit" class="btn btn-primary"><spring:message code="main.addInfo.add"/></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -24,7 +24,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary"><spring:message code="login.form.submit"/></button>
-    <button type="button" class="btn btn-default"><spring:message code="login.form.createAccount"/></button>
+    <button type="button" class="btn btn-default" onclick="location.href='${ctx}/login/create'"><spring:message
+        code="login.form.createAccount"/></button>
   </form>
 </div>
 

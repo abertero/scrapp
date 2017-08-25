@@ -25,6 +25,7 @@ public class Alert implements Serializable {
     private String color;
     private String archAlert;
     private String sharetwitter;
+    private String warningType;
 
     public Alert(JsonNode node) {
         this.id = node.get("ID").asInt();
@@ -38,7 +39,7 @@ public class Alert implements Serializable {
         this.mimeType = ScrappUtils.getStringFromNode(node, "post_mime_type");
         this.permalink = String.format("http://www.onemi.cl%s", ScrappUtils.getStringFromNode(node, "permalink"));
         this.riskType = ScrappUtils.getStringFromNode(node, "tipo_de_riesgo");
-        this.region = ScrappUtils.getStringFromNode(node, "region");
+        this.region = ScrappUtils.getStringFromNode(node, "regiones");
         this.date = ScrappUtils.getStringFromNode(node, "fecha");
         this.time = ScrappUtils.getStringFromNode(node, "hora");
         this.active = node.get("activar") != null && node.get("activar").asInt() == 1;
@@ -46,6 +47,7 @@ public class Alert implements Serializable {
         this.color = ScrappUtils.getStringFromNode(node, "color_alerta");
         this.archAlert = ScrappUtils.getStringFromNode(node, "archi_alerta");
         this.sharetwitter = ScrappUtils.getStringFromNode(node, "sharetwitter");
+        this.warningType = ScrappUtils.getWarningLevelFromColor(this.color);
     }
 
     public Integer getId() {
@@ -198,5 +200,13 @@ public class Alert implements Serializable {
 
     public void setSharetwitter(String sharetwitter) {
         this.sharetwitter = sharetwitter;
+    }
+
+    public String getWarningType() {
+        return warningType;
+    }
+
+    public void setWarningType(String warningType) {
+        this.warningType = warningType;
     }
 }

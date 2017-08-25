@@ -1,0 +1,36 @@
+<section class="onemi-alerts"></section>
+
+<script type="application/javascript">
+  $(function () {
+    var alertTotal = 0;
+    $.ajax({
+      url: "${ctx}/main/banner",
+      method: "get",
+      dataType: "json",
+      success: function (alerts) {
+        alertTotal = alerts.length;
+        var display = "";
+        for (var i = 0; i < alertTotal; ++i) {
+          var alert = alerts[i];
+          $("section.onemi-alerts").append(
+              "<div " + display + " class='alert alert-" + alert.warningType + "' role='alert' id='onemi-alert-" + i + "'>" +
+              "<div>" + alert.date + " | " + alert.time + " | " + alert.region + "</div>" +
+              "<p>" + alert.title + " <a href='" + alert.permalink + "' target='_blank'>(<spring:message code="main.alerts.more"/>)</a></p>" +
+              "</div>"
+          );
+          display = "style='display: none;'";
+        }
+      }
+    });
+
+    var current = 0;
+    setInterval(function () {
+      console.log(current);
+      $("div#onemi-alert-" + current).fadeOut("slow", function () {
+        var next = (current + 1) % alertTotal;
+        $("div#onemi-alert-" + next).fadeIn("slow");
+        current = next;
+      });
+    }, 10000);
+  });
+</script>

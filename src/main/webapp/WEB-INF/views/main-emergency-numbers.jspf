@@ -1,0 +1,14 @@
+<div class="col-xs-12 col-md-6 col-lg-6">
+  <h3><spring:message code="main.emergency.title"/></h3>
+
+  <dl class="dl-horizontal">
+    <dt><spring:message code="main.emergency.samu"/></dt>
+    <dd>131</dd>
+    <dt><spring:message code="main.emergency.firefighter"/></dt>
+    <dd>132</dd>
+    <dt><spring:message code="main.emergency.cops"/></dt>
+    <dd>133</dd>
+    <dt><spring:message code="main.emergency.rescue"/></dt>
+    <dd>136</dd>
+  </dl>
+</div>

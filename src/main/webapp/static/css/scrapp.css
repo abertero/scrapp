@@ -1,3 +1,7 @@
+dl.dl-horizontal dt {
+    text-align: left;
+}
+
 div.tab-content {
     height: 300px;
     max-height: 300px;

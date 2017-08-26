@@ -5,7 +5,7 @@ import org.codehaus.jackson.JsonNode;
 
 import java.io.Serializable;
 
-public class Alert implements Serializable {
+public class OnemiAlert implements Serializable {
     private Integer id;
     private String author;
     private String postDate;
@@ -27,7 +27,7 @@ public class Alert implements Serializable {
     private String sharetwitter;
     private String warningType;
 
-    public Alert(JsonNode node) {
+    public OnemiAlert(JsonNode node) {
         this.id = node.get("ID").asInt();
         this.author = ScrappUtils.getStringFromNode(node, "post_author");
         this.postDate = ScrappUtils.getStringFromNode(node, "post_date");

@@ -3,6 +3,8 @@ package cl.scrapp;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.JsonNode;
 
+import java.util.Map;
+
 public class ScrappUtils {
     public static String MAPS_API_KEY = "AIzaSyBibn8sUpgGxsLBi_DJns-eWMa6V2n_4g0";
 
@@ -24,5 +26,10 @@ public class ScrappUtils {
             }
         }
         return "warning";
+    }
+
+    public static String getValueFromMap(Map<String, String> map, int position) {
+        String result = map.get(String.format("value-%s", position)) != null ? map.get(String.format("value-%s", position)) : "";
+        return StringUtils.replace(StringUtils.replace(StringUtils.replace(result, "<br>", ""), "</b>", ""), "<b>", "");
     }
 }

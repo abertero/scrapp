@@ -1,6 +1,6 @@
 package cl.scrapp.web.services;
 
-import cl.scrapp.beans.Alert;
+import cl.scrapp.beans.OnemiAlert;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -35,7 +35,7 @@ public class OnemiService {
         return null;
     }
 
-    public List<Alert> getAlerts() {
+    public List<OnemiAlert> getAlerts() {
         Client client = Client.create();
         WebResource webResource = client.resource(URL_ONEMI_ALERTS);
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
@@ -44,13 +44,13 @@ public class OnemiService {
         }
         String entity = response.getEntity(String.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<Alert> result = new ArrayList<>();
+        List<OnemiAlert> result = new ArrayList<>();
         try {
             JsonNode node = mapper.readTree(entity);
             Iterator<JsonNode> iterator = node.getElements();
             while (iterator.hasNext()) {
                 JsonNode alertNode = iterator.next();
-                result.add(new Alert(alertNode));
+                result.add(new OnemiAlert(alertNode));
             }
         } catch (IOException e) {
             LOGGER.error("Error reading JSON", e);

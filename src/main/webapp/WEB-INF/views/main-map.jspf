@@ -5,8 +5,29 @@
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+      zoom: 14
     });
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        new google.maps.Marker({
+          position: pos,
+          map: map,
+          title: '<spring:message code="main.map.location"/>'
+        });
+        map.setCenter(pos);
+      }, function () {
+
+      });
+    } else {
+      // Browser doesn't support Geolocation
+    }
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=${MAPS_API_KEY}&callback=initMap"

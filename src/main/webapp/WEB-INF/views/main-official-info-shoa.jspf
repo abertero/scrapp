@@ -1,0 +1,33 @@
+<table class="table table-bordered table-extra-small">
+  <thead>
+  <tr>
+    <th><spring:message code="main.official.tabs.shoa.date"/></th>
+    <th><spring:message code="main.official.tabs.shoa.geolocation"/></th>
+    <th><spring:message code="main.official.tabs.shoa.status"/></th>
+  </tr>
+  </thead>
+  <tbody id="shoa-official">
+  </tbody>
+</table>
+
+<script type="application/javascript">
+  $(function () {
+    $.ajax({
+      url: "${ctx}/main/shoa",
+      method: "get",
+      dataType: "json",
+      success: function (alerts) {
+        for (var i = 0; i < alerts.length; ++i) {
+          var alert = alerts[i];
+          $("tbody#shoa-official").append(
+              "<tr>" +
+              "<td>" + alert.continentalDate + "</td>" +
+              "<td>" + alert.georeference + "</td>" +
+              "<td>" + alert.status + "</td>" +
+              "</tr>"
+          );
+        }
+      }
+    });
+  });
+</script>

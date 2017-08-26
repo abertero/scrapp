@@ -1,6 +1,6 @@
 package cl.scrapp.web.services;
 
-import cl.scrapp.beans.ShoapAlert;
+import cl.scrapp.beans.ShoaAlert;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.util.*;
 
 @Service
-public class ShoapService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShoapService.class);
+public class ShoaService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShoaService.class);
 
-    public List<ShoapAlert> getInfo() {
-        List<ShoapAlert> shoapAlerts = new ArrayList<>();
+    public List<ShoaAlert> getInfo() {
+        List<ShoaAlert> shoaAlerts = new ArrayList<>();
         try {
             Document page = Jsoup.connect("http://www.snamchile.cl").get();
             Elements alerts = page.select("div.scrollit tbody tr");
@@ -33,11 +33,11 @@ public class ShoapService {
                     result.put(String.format("value-%s", i), cellValue.html());
                     ++i;
                 }
-                shoapAlerts.add(new ShoapAlert(result));
+                shoaAlerts.add(new ShoaAlert(result));
             }
         } catch (IOException e) {
             LOGGER.error("Problem loading page", e);
         }
-        return shoapAlerts;
+        return shoaAlerts;
     }
 }

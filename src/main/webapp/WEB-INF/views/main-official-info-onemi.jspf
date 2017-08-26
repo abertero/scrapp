@@ -6,7 +6,7 @@
     <th><spring:message code="main.official.tabs.onemi.title"/></th>
   </tr>
   </thead>
-  <tbody id="official">
+  <tbody id="onemi-official">
   </tbody>
 </table>
 
@@ -19,7 +19,7 @@
       success: function (alerts) {
         for (var i = 0; i < alerts.length; ++i) {
           var alert = alerts[i];
-          $("tbody#official").append(
+          $("tbody#onemi-official").append(
               "<tr>" +
               "<td>" + alert.date + " " + alert.time + "</td>" +
               "<td>" + alert.region + "</td>" +

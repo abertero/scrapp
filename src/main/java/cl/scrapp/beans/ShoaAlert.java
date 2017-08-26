@@ -8,14 +8,14 @@ import java.util.Map;
 /**
  * Created by aldo on 26-08-17.
  */
-public class ShoapAlert implements Serializable {
+public class ShoaAlert implements Serializable {
     private String continentalDate;
     private String georeference;
     private String postDate;
     private String status;
     private String postUrl;
 
-    public ShoapAlert(Map<String, String> result) {
+    public ShoaAlert(Map<String, String> result) {
         this.continentalDate = ScrappUtils.getValueFromMap(result, 0);
         this.georeference = ScrappUtils.getValueFromMap(result, 1);
         this.postDate = ScrappUtils.getValueFromMap(result, 2);

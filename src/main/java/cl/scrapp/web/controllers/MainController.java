@@ -2,9 +2,9 @@ package cl.scrapp.web.controllers;
 
 import cl.scrapp.ScrappUtils;
 import cl.scrapp.beans.OnemiAlert;
-import cl.scrapp.beans.ShoapAlert;
+import cl.scrapp.beans.ShoaAlert;
 import cl.scrapp.web.services.OnemiService;
-import cl.scrapp.web.services.ShoapService;
+import cl.scrapp.web.services.ShoaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class MainController {
     @Autowired
     private OnemiService onemiService;
     @Autowired
-    private ShoapService shoapService;
+    private ShoaService shoaService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView main(@RequestParam(value = "_f", required = false, defaultValue = "false") Boolean first) {
@@ -43,10 +43,10 @@ public class MainController {
         return onemiService.getAlerts();
     }
 
-    @RequestMapping(value = "/shoap", method = RequestMethod.GET)
+    @RequestMapping(value = "/shoa", method = RequestMethod.GET)
     @ResponseBody
-    public List<ShoapAlert> shoapInfo() {
-        LOGGER.debug("Called shoap controller");
-        return shoapService.getInfo();
+    public List<ShoaAlert> shoaInfo() {
+        LOGGER.debug("Called shoa controller");
+        return shoaService.getInfo();
     }
 }

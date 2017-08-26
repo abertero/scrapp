@@ -21,6 +21,8 @@
   <br>
   <%@include file="main-map.jspf" %>
 
+  <%@include file="main-official-info.jspf" %>
+
 </div>
 
 </body>

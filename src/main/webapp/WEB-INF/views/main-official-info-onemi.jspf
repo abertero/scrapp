@@ -1,0 +1,33 @@
+<table class="table table-bordered table-extra-small">
+  <thead>
+  <tr>
+    <th><spring:message code="main.official.tabs.onemi.date"/></th>
+    <th><spring:message code="main.official.tabs.onemi.region"/></th>
+    <th><spring:message code="main.official.tabs.onemi.title"/></th>
+  </tr>
+  </thead>
+  <tbody id="official">
+  </tbody>
+</table>
+
+<script type="application/javascript">
+  $(function () {
+    $.ajax({
+      url: "${ctx}/main/banner",
+      method: "get",
+      dataType: "json",
+      success: function (alerts) {
+        for (var i = 0; i < alerts.length; ++i) {
+          var alert = alerts[i];
+          $("tbody#official").append(
+              "<tr>" +
+              "<td>" + alert.date + " " + alert.time + "</td>" +
+              "<td>" + alert.region + "</td>" +
+              "<td>" + alert.title + "</td>" +
+              "</tr>"
+          );
+        }
+      }
+    });
+  });
+</script>

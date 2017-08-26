@@ -1,5 +1,6 @@
 package cl.scrapp.web.controllers;
 
+import cl.scrapp.ScrappUtils;
 import cl.scrapp.beans.Alert;
 import cl.scrapp.web.services.OnemiService;
 import org.slf4j.Logger;
@@ -27,6 +28,7 @@ public class MainController {
         LOGGER.debug("Called main controller");
         ModelAndView mv = new ModelAndView("main");
         mv.addObject("first", first);
+        mv.addObject("MAPS_API_KEY", ScrappUtils.MAPS_API_KEY);
         return mv;
     }
 

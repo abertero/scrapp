@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.JsonNode;
 
 public class ScrappUtils {
+    public static String MAPS_API_KEY = "AIzaSyBibn8sUpgGxsLBi_DJns-eWMa6V2n_4g0";
 
     public static String getStringFromNode(JsonNode node, String property) {
         return node.get(property) != null ? node.get(property).asText() : "";

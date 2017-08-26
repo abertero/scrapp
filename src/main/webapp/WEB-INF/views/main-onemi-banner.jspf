@@ -25,7 +25,6 @@
 
     var current = 0;
     setInterval(function () {
-      console.log(current);
       $("div#onemi-alert-" + current).fadeOut("slow", function () {
         var next = (current + 1) % alertTotal;
         $("div#onemi-alert-" + next).fadeIn("slow");

@@ -18,6 +18,8 @@
   <%@include file="main-onemi-banner.jspf" %>
 
   <%@include file="main-add-info.jspf" %>
+  <br>
+  <%@include file="main-map.jspf" %>
 
 </div>
 

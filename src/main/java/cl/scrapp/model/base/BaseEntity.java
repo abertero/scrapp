@@ -1,5 +1,7 @@
 package cl.scrapp.model.base;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -38,7 +40,7 @@ public abstract class BaseEntity {
     //<editor-fold desc="Methods">
     @Override
     public String toString() {
-        return this.getClass().getCanonicalName() + "{" + attributes() + "}";
+        return new ReflectionToStringBuilder(this).toString();
     }
 
     protected String attributes() {

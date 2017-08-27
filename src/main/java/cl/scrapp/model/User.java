@@ -1,6 +1,9 @@
 package cl.scrapp.model;
 
 import cl.scrapp.model.base.BaseEntity;
+import cl.scrapp.web.config.JPA;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -9,6 +12,8 @@ import java.util.Date;
 
 @Entity
 public class User extends BaseEntity {
+    private static final Logger LOGGER = LoggerFactory.getLogger(User.class);
+
     private String name;
     private String lastName;
     private String password;
@@ -54,5 +59,16 @@ public class User extends BaseEntity {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public boolean save() {
+        try {
+            JPA.em().persist(this);
+            LOGGER.info("Modified user " + toString());
+            return true;
+        } catch (Exception e) {
+            LOGGER.error("Exception modifying user", e);
+        }
+        return false;
     }
 }

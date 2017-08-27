@@ -1,5 +1,6 @@
 package cl.scrapp.web.config;
 
+import cl.scrapp.converters.DateConverter;
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.hibernate.ejb.HibernatePersistence;
 import org.slf4j.Logger;
@@ -8,11 +9,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -27,7 +30,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ImportResource("classpath:config/applicationContext.xml")
 @PropertySource("classpath:config/application.properties")
-public class ApplicationContext {
+public class ApplicationContext extends WebMvcConfigurerAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationContext.class);
 
     private static final String PROPERTY_NAME_MESSAGESOURCE_BASENAME = "message.source.basename";
@@ -123,5 +126,10 @@ public class ApplicationContext {
 
         LOGGER.info("Init entityManagerFactory " + entityManagerFactoryBean.toString());
         return entityManagerFactoryBean;
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new DateConverter());
     }
 }

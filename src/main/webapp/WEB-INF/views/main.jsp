@@ -8,6 +8,7 @@
 </c:if>
 
 <div class="container">
+  <%@include file="general/log.jspf"%>
   <header>
     <h1><a href="${ctx}/main"><img src="${ctx}/static/images/main-image.png"
                                    alt="<spring:message code="main.title"/>"></a>&nbsp;<spring:message

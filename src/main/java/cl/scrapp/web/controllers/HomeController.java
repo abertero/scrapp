@@ -15,7 +15,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView home() {
         LOGGER.debug("Called home controller");
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:/main");
     }
 
 }

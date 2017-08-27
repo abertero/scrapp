@@ -1,8 +1,9 @@
 package cl.scrapp.web.controllers;
 
-import cl.scrapp.ScrappUtils;
+import cl.scrapp.utils.ScrappUtils;
 import cl.scrapp.beans.OnemiAlert;
 import cl.scrapp.beans.ShoaAlert;
+import cl.scrapp.utils.SessionUtils;
 import cl.scrapp.web.services.OnemiService;
 import cl.scrapp.web.services.ShoaService;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -26,6 +28,8 @@ public class MainController {
     private OnemiService onemiService;
     @Autowired
     private ShoaService shoaService;
+    @Autowired
+    private HttpServletRequest request;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView main(@RequestParam(value = "_f", required = false, defaultValue = "false") Boolean first) {
@@ -33,6 +37,7 @@ public class MainController {
         ModelAndView mv = new ModelAndView("main");
         mv.addObject("first", first);
         mv.addObject("MAPS_API_KEY", ScrappUtils.MAPS_API_KEY);
+        mv.addObject("user", SessionUtils.getUser(request, ScrappUtils.SESSION_USERNAME));
         return mv;
     }
 

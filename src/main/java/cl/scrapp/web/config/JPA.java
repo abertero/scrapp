@@ -1,6 +1,6 @@
 package cl.scrapp.web.config;
 
-import cl.scrapp.ScrappUtils;
+import cl.scrapp.utils.ScrappUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

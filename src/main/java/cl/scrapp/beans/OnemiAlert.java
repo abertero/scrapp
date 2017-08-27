@@ -1,6 +1,6 @@
 package cl.scrapp.beans;
 
-import cl.scrapp.ScrappUtils;
+import cl.scrapp.utils.ScrappUtils;
 import org.codehaus.jackson.JsonNode;
 
 import java.io.Serializable;

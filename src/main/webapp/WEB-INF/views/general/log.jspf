@@ -1,5 +1,14 @@
 <nav class="navbar navbar-right">
-  <button class="btn btn-success" onclick="location.href='${ctx}/login'"><spring:message code="main.button.login"/></button>
-  <button class="btn btn-primary" onclick="location.href='${ctx}/login/register'"><spring:message code="main.button.register"/></button>
-  <button class="btn btn-danger"><spring:message code="main.button.logout"/></button>
+  <c:if test="${user != null}">
+    <p><c:out value="${user.fullName}"/>&nbsp;
+      <button class="btn btn-danger" onclick="location.href='${ctx}/login/logout'"><spring:message
+          code="main.button.logout"/></button>
+    </p>
+  </c:if>
+  <c:if test="${user == null}">
+    <button class="btn btn-success" onclick="location.href='${ctx}/login'"><spring:message
+        code="main.button.login"/></button>
+    <button class="btn btn-primary" onclick="location.href='${ctx}/login/register'"><spring:message
+        code="main.button.register"/></button>
+  </c:if>
 </nav>

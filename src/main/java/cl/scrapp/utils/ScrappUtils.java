@@ -1,4 +1,4 @@
-package cl.scrapp;
+package cl.scrapp.utils;
 
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.JsonNode;

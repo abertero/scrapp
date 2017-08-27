@@ -61,6 +61,10 @@ public class User extends BaseEntity {
         this.birthday = birthday;
     }
 
+    public String getFullName() {
+        return String.format("%s %s", name, lastName);
+    }
+
     public boolean save() {
         try {
             JPA.em().persist(this);
@@ -78,4 +82,7 @@ public class User extends BaseEntity {
         return count != null && count.longValue() == 1;
     }
 
+    public static User findByUserId(String userId) {
+        return JPA.queryFirst("SELECT u FROM User u WHERE u.userId = ?1", userId);
+    }
 }

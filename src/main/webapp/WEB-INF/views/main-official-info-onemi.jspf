@@ -13,7 +13,7 @@
 <script type="application/javascript">
   $(function () {
     $.ajax({
-      url: "${ctx}/main/banner",
+      url: "${ctx}/main/onemi",
       method: "get",
       dataType: "json",
       success: function (alerts) {

@@ -24,4 +24,10 @@ public class LoginController {
         LOGGER.debug("Called log controller");
         return new ModelAndView("redirect:/main?_f=true");
     }
+
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public ModelAndView register() {
+        LOGGER.debug("Called register controller");
+        return new ModelAndView("register");
+    }
 }

@@ -4,7 +4,7 @@
   $(function () {
     var alertTotal = 0;
     $.ajax({
-      url: "${ctx}/main/banner",
+      url: "${ctx}/main/onemi",
       method: "get",
       dataType: "json",
       success: function (alerts) {

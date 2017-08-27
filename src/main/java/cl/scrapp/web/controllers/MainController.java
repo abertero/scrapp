@@ -36,14 +36,14 @@ public class MainController {
         return mv;
     }
 
-    @RequestMapping(value = "/banner", method = RequestMethod.GET)
+    @RequestMapping(value = "onemi", method = RequestMethod.GET)
     @ResponseBody
-    public List<OnemiAlert> onemiBanner() {
-        LOGGER.debug("Called banner controller");
+    public List<OnemiAlert> onemiInfo() {
+        LOGGER.debug("Called onemi controller");
         return onemiService.getAlerts();
     }
 
-    @RequestMapping(value = "/shoa", method = RequestMethod.GET)
+    @RequestMapping(value = "shoa", method = RequestMethod.GET)
     @ResponseBody
     public List<ShoaAlert> shoaInfo() {
         LOGGER.debug("Called shoa controller");

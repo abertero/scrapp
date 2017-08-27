@@ -6,7 +6,10 @@ import org.codehaus.jackson.JsonNode;
 import java.util.Map;
 
 public class ScrappUtils {
-    public static String MAPS_API_KEY = "AIzaSyBibn8sUpgGxsLBi_DJns-eWMa6V2n_4g0";
+    public static final String DEFAULT_ENCODING = "UTF-8";
+    public static final String SESSION_USERNAME = "USERNAME";
+    public static final String MAPS_API_KEY = "AIzaSyBibn8sUpgGxsLBi_DJns-eWMa6V2n_4g0";
+    public static final int JPA_MAX_RESULTS = 15;
 
     public static String getStringFromNode(JsonNode node, String property) {
         return node.get(property) != null ? node.get(property).asText() : "";

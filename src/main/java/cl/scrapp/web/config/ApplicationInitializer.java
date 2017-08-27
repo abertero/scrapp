@@ -28,7 +28,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         LOGGER.info("Log4j added");
 
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(ApplicationContext.class, Spring.class);
+        rootContext.register(ApplicationContext.class, Spring.class, JPA.class);
         LOGGER.info("Registered to context ApplicationContext, Spring and JPA Beans");
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(DISPATCHER_SERVLET_NAME, new DispatcherServlet(rootContext));

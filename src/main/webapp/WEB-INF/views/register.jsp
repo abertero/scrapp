@@ -18,9 +18,9 @@
              placeholder="<spring:message code="register.form.lastName.placeholder"/>">
     </div>
     <div class="form-group">
-      <label for="rut"><spring:message code="register.form.rut"/></label>
-      <input type="text" class="form-control" id="rut" name="rut" maxlength="12"
-             placeholder="<spring:message code="register.form.rut.placeholder"/>">
+      <label for="userId"><spring:message code="register.form.userId"/></label>
+      <input type="text" class="form-control" id="userId" name="userId" maxlength="12"
+             placeholder="<spring:message code="register.form.userId.placeholder"/>">
     </div>
     <div class="form-group">
       <label for="password"><spring:message code="register.form.password"/></label>

@@ -6,7 +6,7 @@
   <h1><spring:message code="login.title"/></h1>
 
   <div class="col-xs-12 col-md-6 col-lg-4">
-    <form action="${ctx}/login/log" method="post">
+    <form action="${ctx}/login/log" method="post" id="login">
       <div class="form-group">
         <label for="userId"><spring:message code="login.form.userId"/></label>
         <input type="text" class="form-control" id="userId" name="userId" maxlength="12"
@@ -16,6 +16,10 @@
         <label for="password"><spring:message code="login.form.password"/></label>
         <input type="password" class="form-control" id="password" name="password"
                placeholder="<spring:message code="login.form.password.placeholder"/>">
+        <c:if test="${error}">
+          <label class="my-error" for="password"><spring:message
+              code="login.form.error"/></label>
+        </c:if>
       </div>
       <div class="checkbox">
         <label>

@@ -27,7 +27,7 @@
         <label for="password"><spring:message code="register.form.password"/></label>
         <input type="password" class="form-control" id="password" name="password"
                placeholder="<spring:message code="register.form.password.placeholder"/>">
-        <label id="not-equal-password-error" for="password" style="display:none;"><spring:message
+        <label id="not-equal-password-error" class="my-error" for="password" style="display:none;"><spring:message
             code="register.validate.password.notEquals"/></label>
       </div>
       <div class="form-group">

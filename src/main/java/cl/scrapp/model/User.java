@@ -71,4 +71,11 @@ public class User extends BaseEntity {
         }
         return false;
     }
+
+    public static boolean validate(String userId, String password) {
+        String query = "SELECT COUNT(u) FROM User u WHERE u.userId = ?1 AND u.password = ?2";
+        Number count = JPA.querySingle(query, userId, password);
+        return count != null && count.longValue() == 1;
+    }
+
 }

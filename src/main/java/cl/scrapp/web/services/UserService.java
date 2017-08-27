@@ -9,4 +9,8 @@ public class UserService {
     public void saveUser(User user) {
         user.save();
     }
+
+    public boolean validate(String userId, String password) {
+        return User.validate(userId, password);
+    }
 }

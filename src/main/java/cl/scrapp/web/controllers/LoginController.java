@@ -25,14 +25,20 @@ public class LoginController {
     private HttpServletRequest httpServletRequest;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView login() {
+    public ModelAndView login(@RequestParam(value = "_e", required = false, defaultValue = "false") Boolean error) {
         LOGGER.debug("Called login controller");
-        return new ModelAndView("login");
+        ModelAndView mv = new ModelAndView("login");
+        mv.addObject("error", error);
+        return mv;
     }
 
     @RequestMapping(value = "log", method = RequestMethod.POST)
     public ModelAndView log(@RequestParam String userId, @RequestParam String password) {
         LOGGER.debug("Called log controller");
+        boolean validate = userService.validate(userId, password);
+        if (!validate) {
+            return new ModelAndView("redirect:/login?_e=true");
+        }
         return new ModelAndView("redirect:/main?_f=true");
     }
 

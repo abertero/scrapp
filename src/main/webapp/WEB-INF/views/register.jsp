@@ -26,6 +26,8 @@
       <label for="password"><spring:message code="register.form.password"/></label>
       <input type="password" class="form-control" id="password" name="password"
              placeholder="<spring:message code="register.form.password.placeholder"/>">
+      <label id="not-equal-password-error" for="password" style="display:none;"><spring:message
+          code="register.validate.password.notEquals"/></label>
     </div>
     <div class="form-group">
       <label for="repeatPassword"><spring:message code="register.form.repeatPassword"/></label>
@@ -38,12 +40,22 @@
              placeholder="<spring:message code="register.form.birthday.placeholder"/>">
     </div>
 
-    <button type="submit" class="btn btn-primary"><spring:message code="register.form.submit"/></button>
+    <button type="submit" class="btn btn-primary" disabled><spring:message code="register.form.submit"/></button>
   </form>
 </div>
 
 <script type="application/javascript">
   $(function () {
+    $("#password, #repeatPassword").blur(function () {
+      if ($("#password").val() != "" && $("#password").val() == $("#repeatPassword").val()) {
+        $("button[type=submit]").prop("disabled", false);
+        $("label#not-equal-password-error").hide();
+      } else {
+        $("button[type=submit]").prop("disabled", true);
+        $("label#not-equal-password-error").show();
+      }
+    });
+
     $("form#register").validate({
       rules: {
         name: "required",

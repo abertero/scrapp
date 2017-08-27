@@ -1,4 +1,4 @@
-.error {
+.error, label#not-equal-password-error {
     color: darkred;
 }
 

@@ -1,19 +1,20 @@
 package cl.scrapp.web.controllers;
 
-import cl.scrapp.utils.ScrappUtils;
 import cl.scrapp.beans.OnemiAlert;
 import cl.scrapp.beans.ShoaAlert;
+import cl.scrapp.model.Info;
+import cl.scrapp.model.User;
+import cl.scrapp.utils.ScrappUtils;
 import cl.scrapp.utils.SessionUtils;
+import cl.scrapp.web.services.InfoService;
 import cl.scrapp.web.services.OnemiService;
 import cl.scrapp.web.services.ShoaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,8 @@ public class MainController {
     private OnemiService onemiService;
     @Autowired
     private ShoaService shoaService;
+    @Autowired
+    private InfoService infoService;
     @Autowired
     private HttpServletRequest request;
 
@@ -53,5 +56,21 @@ public class MainController {
     public List<ShoaAlert> shoaInfo() {
         LOGGER.debug("Called shoa controller");
         return shoaService.getInfo();
+    }
+
+    @RequestMapping(value = "info", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Info> info() {
+        LOGGER.debug("Called info controller");
+        return infoService.getLast100();
+    }
+
+    @RequestMapping(value = "addInfo", method = RequestMethod.POST)
+    @Transactional
+    public ModelAndView addInfo(@ModelAttribute Info info) {
+        LOGGER.debug(String.format("Called addInfo controller %s", info));
+        User user = SessionUtils.getUser(request, ScrappUtils.SESSION_USERNAME);
+        infoService.saveInfo(info, user);
+        return new ModelAndView("redirect:/main");
     }
 }

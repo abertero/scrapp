@@ -9,6 +9,13 @@
           <h4 class="modal-title"><spring:message code="main.addInfo.title"/></h4>
         </div>
         <div class="modal-body">
+          <c:if test="${user == null}">
+            <p><spring:message code="main.addInfo.warn"/></p>
+            <button class="btn btn-success" onclick="location.href='${ctx}/login'"><spring:message
+                code="main.button.login"/></button>
+            <button class="btn btn-primary" onclick="location.href='${ctx}/login/register'"><spring:message
+                code="main.button.register"/></button>
+          </c:if>
           <div class="form-group">
             <label for="subject"><spring:message code="main.addInfo.form.subject"/></label>
             <input type="text" class="form-control" id="subject" name="subject"
@@ -32,7 +39,9 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message
               code="main.addInfo.cancel"/></button>
-          <button type="submit" class="btn btn-primary"><spring:message code="main.addInfo.add"/></button>
+          <c:if test="${user != null}">
+            <button type="submit" class="btn btn-primary"><spring:message code="main.addInfo.add"/></button>
+          </c:if>
         </div>
       </div>
     </div>

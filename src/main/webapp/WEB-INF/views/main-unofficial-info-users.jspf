@@ -1,0 +1,35 @@
+<table class="table table-bordered table-extra-small">
+  <thead>
+  <tr>
+    <th><spring:message code="main.unofficial.tabs.users.date"/></th>
+    <th><spring:message code="main.unofficial.tabs.users.name"/></th>
+    <th><spring:message code="main.unofficial.tabs.users.location"/></th>
+    <th><spring:message code="main.unofficial.tabs.users.subject"/></th>
+  </tr>
+  </thead>
+  <tbody id="users-unofficial">
+  </tbody>
+</table>
+
+<script type="application/javascript">
+  $(function () {
+    $.ajax({
+      url: "${ctx}/main/info",
+      method: "get",
+      dataType: "json",
+      success: function (alerts) {
+        for (var i = 0; i < alerts.length; ++i) {
+          var alert = alerts[i];
+          $("tbody#users-unofficial").append(
+              "<tr>" +
+              "<td>" + alert.recordDateString + "</td>" +
+              "<td>" + alert.user.fullName + "</td>" +
+              "<td>" + alert.location + "</td>" +
+              "<td>" + alert.subject + "</td>" +
+              "</tr>"
+          );
+        }
+      }
+    });
+  });
+</script>

@@ -42,9 +42,5 @@ public abstract class BaseEntity {
     public String toString() {
         return new ReflectionToStringBuilder(this).toString();
     }
-
-    protected String attributes() {
-        return "id: " + id + ", altKey: " + altKey;
-    }
     //</editor-fold>
 }

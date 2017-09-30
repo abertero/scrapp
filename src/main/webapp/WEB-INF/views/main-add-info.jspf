@@ -1,6 +1,3 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal"><spring:message
-    code="main.addInfo"/></button>
-
 <div class="modal fade" tabindex="-1" role="dialog" id="uploadModal">
   <form action="${ctx}/main/addInfo" method="post">
     <div class="modal-dialog" role="document">
@@ -22,8 +19,8 @@
                    placeholder="<spring:message code="main.addInfo.form.subject.placeholder"/>">
           </div>
           <div class="form-group">
-            <label for="location"><spring:message code="main.addInfo.form.location"/></label>
-            <input type="text" class="form-control" id="location" name="location"
+            <label for="map-location"><spring:message code="main.addInfo.form.location"/></label>
+            <input type="text" class="form-control controls" id="map-location" name="location"
                    placeholder="<spring:message code="main.addInfo.form.location.placeholder"/>">
           </div>
           <div class="form-group">
@@ -47,3 +44,9 @@
     </div>
   </form>
 </div>
+
+<script type="application/javascript">
+  var searchBox = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('map-location')),
+      {types: ['geocode']});
+</script>

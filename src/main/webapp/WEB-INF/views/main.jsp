@@ -18,9 +18,12 @@
 
   <%@include file="main-onemi-banner.jspf" %>
 
-  <%@include file="main-add-info.jspf" %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal"><spring:message
+      code="main.addInfo"/></button>
   <br>
   <%@include file="main-map.jspf" %>
+
+  <%@include file="main-add-info.jspf" %>
 
   <%@include file="main-official-info.jspf" %>
 

@@ -22,6 +22,8 @@
             <label for="map-location"><spring:message code="main.addInfo.form.location"/></label>
             <input type="text" class="form-control controls" id="map-location" name="location"
                    placeholder="<spring:message code="main.addInfo.form.location.placeholder"/>">
+            <input type="hidden" id="latitude" name="latitude" value="">
+            <input type="hidden" id="longitude" name="longitude" value="">
           </div>
           <div class="form-group">
             <label for="detail"><spring:message code="main.addInfo.form.detail"/></label>
@@ -49,4 +51,19 @@
   var searchBox = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(document.getElementById('map-location')),
       {types: ['geocode']});
+  searchBox.addListener('place_changed', function () {
+    var place = searchBox.getPlace();
+    if (!place.geometry) {
+      console.log("Returned place contains no geometry");
+      return;
+    }
+    $("input#latitude").val(place.geometry.location.lat());
+    $("input#longitude").val(place.geometry.location.lng());
+  });
+
+  $(function () {
+    $("form input").keypress(function () {
+      return event.keyCode != 13;
+    });
+  });
 </script>

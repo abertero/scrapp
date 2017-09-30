@@ -17,6 +17,8 @@ public class Info extends BaseEntity {
     private String subject;
     private String detail;
     private String location;
+    private Double latitude;
+    private Double longitude;
     private String photo;
     @ManyToOne
     private User user;
@@ -71,6 +73,22 @@ public class Info extends BaseEntity {
 
     public void setRecordDate(Date recordDate) {
         this.recordDate = recordDate;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public String getRecordDateString() {

@@ -16,11 +16,6 @@
           lng: position.coords.longitude
         };
 
-        new google.maps.Marker({
-          position: pos,
-          map: map,
-          title: '<spring:message code="main.map.location"/>'
-        });
         map.setCenter(pos);
       }, function () {
 
@@ -29,5 +24,27 @@
       // Browser doesn't support Geolocation
     }
   }
+
+  $(function () {
+    $.ajax({
+      url: "${ctx}/main/info",
+      method: "get",
+      dataType: "json",
+      success: function (alerts) {
+        for (var i = 0; i < alerts.length; ++i) {
+          var alert = alerts[i];
+          var alertPos = {
+            lat: alert.latitude,
+            lng: alert.longitude
+          };
+          new google.maps.Marker({
+            position: alertPos,
+            map: map,
+            title: alert.subject
+          });
+        }
+      }
+    });
+  });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=${MAPS_API_KEY}&callback=initMap&libraries=places"></script>

@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-md-6 col-lg-6">
+  <h3><spring:message code="main.incaseofemergency.title"/></h3>
+
+  <ul class="list-unstyled">
+    <li><a href="${ctx}/static/documents/SISMOS.pdf"><spring:message code="main.incaseofemergency.earthquake"/></a></li>
+    <li><a href="${ctx}/static/documents/TSUNAMI.pdf"><spring:message code="main.incaseofemergency.tsunami"/></a></li>
+    <li><a href="${ctx}/static/documents/ALUVIONES.pdf"><spring:message code="main.incaseofemergency.alluviom"/></a></li>
+    <li><a href="${ctx}/static/documents/INUNDACIONES.pdf"><spring:message code="main.incaseofemergency.flood"/></a></li>
+    <li><a href="${ctx}/static/documents/ERUPCIONES.pdf"><spring:message code="main.incaseofemergency.eruption"/></a></li>
+    <li><a href="${ctx}/static/documents/FORESTALES.pdf"><spring:message code="main.incaseofemergency.forest"/></a></li>
+  </ul>
+</div>

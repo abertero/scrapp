@@ -1,0 +1,70 @@
+<div class="col-xs-12 col-md-6 col-lg-7 module">
+  <h3><spring:message code="main.contacts.title"/></h3>
+
+  <table class="table table-bordered table-extra-small">
+    <thead>
+    <tr>
+      <th><spring:message code="main.contacts.tabs.name"/></th>
+      <th><spring:message code="main.contacts.tabs.email"/></th>
+      <th><spring:message code="main.contacts.tabs.action"/></th>
+    </tr>
+    </thead>
+    <tbody id="contacts_details">
+    </tbody>
+  </table>
+  <%@include file="main-add-contact.jspf" %>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="deleteContact">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><spring:message code="main.deletecontact.title"/></h4>
+      </div>
+      <spring:message code="main.deleteContact.text"/>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message
+            code="main.deleteContact.cancel"/></button>
+        <button type="button" class="btn btn-primary" id="deleteContactButton"><spring:message
+            code="main.deleteContact.delete"/></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="application/javascript">
+  $(function () {
+    $.ajax({
+      url: "${ctx}/contacts/all",
+      method: "get",
+      dataType: "json",
+      success: function (contacts) {
+        if (contacts.length == 0) {
+          $("tbody#contacts_details").append(
+              "<tr>" +
+              "<td colspan='3'><spring:message code="main.contacts.empty"/></td>" +
+              "</tr>"
+          );
+        }
+
+        for (var i = 0; i < contacts.length; ++i) {
+          var contact = contacts[i];
+          $("tbody#contacts_details").append(
+              "<tr>" +
+              "<td>" + contact.name + "</td>" +
+              "<td>" + contact.email + "</td>" +
+              "<td><a href='javascript:void(0);' onclick='deleteContact(\"" + contact.altKey + "\")' style='color:red;'><span class='glyphicon glyphicon-remove'><span></a></td>" +
+              "</tr>"
+          );
+        }
+      }
+    });
+  });
+
+  function deleteContact(contactKey) {
+    $("#deleteContactButton").click(function () {
+      location.href = '${ctx}/contacts/delete/' + contactKey;
+    });
+    $("#deleteContact").modal("show");
+  }
+</script>

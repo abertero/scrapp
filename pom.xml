@@ -217,6 +217,12 @@
             <artifactId>jsoup</artifactId>
             <version>1.8.3</version>
         </dependency>
+        <!-- MAIL -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
 </project>

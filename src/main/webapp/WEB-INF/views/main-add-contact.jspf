@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal"><spring:message
+    code="main.addContact"/></button>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="addContactModal">
+  <form action="${ctx}/contacts/addContact" method="post">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><spring:message code="main.addContact.title"/></h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name"><spring:message code="main.addContact.form.name"/></label>
+            <input type="text" class="form-control" id="name" name="name"
+                   placeholder="<spring:message code="main.addContact.form.name.placeholder"/>">
+          </div>
+          <div class="form-group">
+            <label for="email"><spring:message code="main.addContact.form.email"/></label>
+            <input type="text" class="form-control" id="email" name="email"
+                   placeholder="<spring:message code="main.addContact.form.email.placeholder"/>">
+          </div>
+          <div class="form-group">
+            <label for="phone"><spring:message code="main.addContact.form.phone"/></label>
+            <input type="text" class="form-control" id="phone" name="phone"
+                   placeholder="<spring:message code="main.addContact.form.phone.placeholder"/>">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message
+              code="main.addContact.cancel"/></button>
+          <button type="submit" class="btn btn-primary"><spring:message code="main.addContact.add"/></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

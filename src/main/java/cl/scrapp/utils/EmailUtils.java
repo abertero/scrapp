@@ -24,13 +24,13 @@ public class EmailUtils {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("correo@correo.cl", "contraseña");
+                        return new PasswordAuthentication("ohscrapp1@gmail.com", "ohscrapp");
                     }
                 });
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("noreply@ohscr-app.cl"));
+            message.setFrom(new InternetAddress("ohscrapp1@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(contact.getEmail()));
             message.setSubject("[OHSCR-APP] Alerta de notificación");

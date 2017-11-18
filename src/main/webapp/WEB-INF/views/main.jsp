@@ -41,9 +41,9 @@
 
   <br>
 
-  <%@include file="main-unofficial-info.jspf" %>
-
   <%@include file="main-emergency-numbers.jspf" %>
+
+  <%@include file="main-unofficial-info.jspf" %>
 
   <%@include file="main-in-case-of-emergency.jspf" %>
 

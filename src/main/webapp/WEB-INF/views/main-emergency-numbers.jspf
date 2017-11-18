@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-md-6 col-lg-6 module">
+<div class="col-xs-12 col-md-6 col-lg-5 module">
   <h3><spring:message code="main.emergency.title"/></h3>
 
   <dl class="dl-horizontal">

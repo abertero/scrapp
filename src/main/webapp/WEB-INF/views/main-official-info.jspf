@@ -1,9 +1,10 @@
-<div class="col-xs-12 col-md-6 col-lg-7">
+<div class="col-xs-12 col-md-6 col-lg-6 right-module">
   <h3><spring:message code="main.official.title"/></h3>
 
   <div class="col-xs-3">
     <ul class="nav nav-tabs tabs-left">
-      <li class="active"><a href="#official-tab-1" data-toggle="tab"><spring:message code="main.official.tabs.onemi"/></a></li>
+      <li class="active"><a href="#official-tab-1" data-toggle="tab"><spring:message
+          code="main.official.tabs.onemi"/></a></li>
       <li><a href="#official-tab-2" data-toggle="tab"><spring:message code="main.official.tabs.shoa"/></a></li>
     </ul>
   </div>

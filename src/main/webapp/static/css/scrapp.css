@@ -120,3 +120,11 @@ td.td-center {
 div.module {
     margin-top: 20px;
 }
+
+div.right-module {
+    margin-left: 10px;
+}
+
+div.right-module > div {
+    padding-left: 0px !important;
+}

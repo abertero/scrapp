@@ -8,7 +8,16 @@
     src: url('../fonts/delius-regular.ttf');
 }
 
-h1, button, a.btn {
+@font-face {
+    font-family: 'JosefinSlab Bold';
+    src: url('../fonts/josefinslab-bold.ttf');
+}
+
+h1 {
+    font-family: 'JosefinSlab Bold', cursive !important;
+}
+
+button, a.btn {
     font-family: 'Pacifico', cursive !important;
 }
 
@@ -29,7 +38,6 @@ dl.dl-horizontal dt {
 }
 
 div.tab-content {
-    height: 300px;
     max-height: 300px;
     overflow-y: auto;
 }

@@ -128,3 +128,14 @@ div.right-module {
 div.right-module > div {
     padding-left: 0px !important;
 }
+
+section.onemi-alerts, section.onemi-alerts > div {
+    z-index: 1;
+}
+
+div.alert-button {
+    position: relative;
+    float: right;
+    max-width: 100px;
+    z-index: 2;
+}

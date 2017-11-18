@@ -17,12 +17,13 @@
   </header>
 
   <c:if test="${user!=null}">
-    <div style="float: right; max-width: 100px;">
+    <div class="alert-button">
       <a href="javascript:alertar();"><img src="${ctx}/static/images/alert.png"
                                            alt="<spring:message code="main.button.alert"/>"
                                            style="width: 100%"></a>
     </div>
   </c:if>
+
   <div class="alert alert-success" id="alertSuccess" role="alert" style="display: none;"><spring:message
       code="main.alert.success"/></div>
   <div class="alert alert-danger" id="alertError" role="alert" style="display: none;"><spring:message

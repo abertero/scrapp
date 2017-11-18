@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -123,6 +124,16 @@ public class Info extends BaseEntity {
     public static List<Info> findLast100() {
         String queryStr = "SELECT i FROM Info i ORDER BY i.recordDate";
         TypedQuery<Info> query = JPA.em().createQuery(queryStr, Info.class);
+        query.setMaxResults(100);
+        return query.getResultList();
+    }
+
+    public static List<Info> findLastMonth() {
+        String queryStr = "SELECT i FROM Info i WHERE i.recordDate > ?1 ORDER BY i.recordDate";
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+        TypedQuery<Info> query = JPA.em().createQuery(queryStr, Info.class);
+        query.setParameter(1, cal.getTime());
         query.setMaxResults(100);
         return query.getResultList();
     }

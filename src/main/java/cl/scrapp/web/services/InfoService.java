@@ -17,4 +17,8 @@ public class InfoService {
     public List<Info> getLast100() {
         return Info.findLast100();
     }
+
+    public List<Info> getLastMonth() {
+        return Info.findLastMonth();
+    }
 }

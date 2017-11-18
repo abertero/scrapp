@@ -62,7 +62,7 @@ public class MainController {
     @ResponseBody
     public List<Info> info() {
         LOGGER.debug("Called info controller");
-        return infoService.getLast100();
+        return infoService.getLastMonth();
     }
 
     @RequestMapping(value = "addInfo", method = RequestMethod.POST)

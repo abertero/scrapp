@@ -10,10 +10,7 @@
 <div class="container">
   <%@include file="general/log.jspf" %>
   <header>
-    <h1><a href="${ctx}/main"><img src="${ctx}/static/images/main-image.png"
-                                   alt="<spring:message code="main.title"/>"></a>&nbsp;<spring:message
-        code="main.title"/>
-    </h1>
+    <a href="${ctx}/main"><img src="${ctx}/static/images/main-image.png" alt="<spring:message code="main.title"/>" width="900" height="117"/></a>
   </header>
 
   <c:if test="${user!=null}">

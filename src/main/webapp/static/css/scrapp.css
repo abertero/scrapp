@@ -13,6 +13,10 @@
     src: url('../fonts/josefinslab-bold.ttf');
 }
 
+header {
+    margin-bottom: 10px;
+}
+
 h1 {
     font-family: 'JosefinSlab Bold', cursive !important;
 }

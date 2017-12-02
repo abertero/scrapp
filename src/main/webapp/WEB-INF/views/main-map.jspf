@@ -1,5 +1,5 @@
 <input id="pac-input" class="controls" type="text" placeholder="<spring:message code="main.map.searchBox"/>">
-<div id="map" class="col-xs-12 col-md-6 col-lg-5"></div>
+<div id="map" class="col-xs-12 col-md-12 col-lg-12"></div>
 
 <script type="application/javascript">
   var map;

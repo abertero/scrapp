@@ -35,13 +35,13 @@
 
   <%@include file="main-add-info.jspf" %>
 
-  <%@include file="main-official-info.jspf" %>
-
   <br>
 
-  <%@include file="main-emergency-numbers.jspf" %>
+  <%@include file="main-official-info.jspf" %>
 
   <%@include file="main-unofficial-info.jspf" %>
+
+  <%@include file="main-emergency-numbers.jspf" %>
 
   <%@include file="main-in-case-of-emergency.jspf" %>
 
